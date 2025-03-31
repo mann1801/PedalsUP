@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockchain Wallet</title>
+    <script src="libs/crypto-js.min.js"></script>
+    <script src="libs/ethers.js"></script>
+   <style>
+        body {
+            width: 370px;
+            padding: 20px;
+            background: #0d0d0d;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px; /* Increased gap between sections */
+        }
+
+        h2, h3 {
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #0ff;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-top: 30px; /* Increased top margin */
+        }
+
+        input {
+            padding: 10px 12px;
+            font-size: 14px;
+            border-radius: 6px;
+            border: 1px solid #0ff;
+            background: rgba(26, 26, 26, 0.8);
+            color: #fff;
+            outline: none;
+            transition: all 0.2s ease;
+            width: 90%;
+            margin: 0 auto 15px auto; /* Slightly increased bottom margin */
+            font-family: 'Arial', sans-serif;
+        }
+
+        input::placeholder {
+            color: #666;
+            font-style: italic;
+        }
+
+        input:focus {
+            border-color: white;
+            transform: scale(1.01);
+        }
+
+        button {
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            border: 1px solid #0ff;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #0ff;
+            background: rgba(10, 10, 10, 0.9);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Orbitron', sans-serif;
+            margin: 10px auto; /* Increased margin */
+            width: auto;
+            min-width: 160px;
+            display: inline-block;
+        }
+
+        button:hover {
+            background: rgba(0, 20, 20, 0.9);
+            border-color: white;
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            transform: translateY(0);
+            background: rgba(0, 30, 30, 0.9);
+        }
+
+        hr {
+            border: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+            margin: 30px 0; /* Doubled the margin for wider spacing */
+        }
+
+        #balance {
+            color: #0ff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        p {
+            margin: 15px 0; /* Increased margin */
+            line-height: 1.5;
+            font-size: 13px;
+        }
+
+        .section {
+            margin-bottom: 30px; /* Added section class for consistent spacing */
+        }
+
+    </style>
+
+</head>
+<body>
+    <h2>Ethereum Wallet</h2>
+    <input type="password" id="password" placeholder="Enter Password">
+    <button id="unlock">Connect To Wallet</button>
+    <p id="result"></p>
+
+    <hr>
+    <h3>Balance: <span id="balance">--</span> ETH</h3>
+    <button id="checkBalance">Check Balance</button>
+
+    <hr>
+    <h3>Send ETH</h3>
+    <input type="text" id="toAddress" placeholder="Recipient Address">
+    <input type="number" id="amount" placeholder="Amount (ETH)">
+    <button id="sendTransaction">Send Sepolia ETH</button>
+    <p id="txResult"></p>
+    <script src="popup.js"></script>
+</body>
+</html>
